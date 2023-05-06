@@ -1,4 +1,4 @@
-copype amd64 C:\WinPE_amd64_PS
+call copype amd64 C:\WinPE_amd64_PS
 Dism /Mount-Image /ImageFile:"C:\WinPE_amd64_PS\media\sources\boot.wim" /Index:1 /MountDir:"C:\WinPE_amd64_PS\mount"
 Dism /Add-Package /Image:"C:\WinPE_amd64_PS\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-WMI.cab"
 Dism /Add-Package /Image:"C:\WinPE_amd64_PS\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"
@@ -20,5 +20,5 @@ ECHO powercfg /s 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c>>C:\WinPE_amd64_PS\mount\w
 ECHO @for %%a in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do @if exist %%a:\Images\ set IMAGESDRIVE=%%a>>C:\WinPE_amd64_PS\mount\windows\system32\startnet.cmd
 ECHO %IMAGESDRIVE%:>>C:\WinPE_amd64_PS\mount\windows\system32\startnet.cmd
 Dism /Unmount-Image /MountDir:C:\WinPE_amd64_PS\mount /Commit
-MakeWinPEMedia /ISO C:\WinPE_amd64_PS %USERPROFILE%\Desktop\WinPE_amd64_PS.iso
+call MakeWinPEMedia /ISO C:\WinPE_amd64_PS %USERPROFILE%\Desktop\WinPE_amd64_PS.iso
 rmdir /S /Q C:\WinPE_amd64_PS
